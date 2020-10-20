@@ -22,6 +22,13 @@ namespace MaxNumber
             double double3 = Convert.ToDouble(Console.ReadLine());
             double maxDouble = comp.compareDoubles(double1, double2, double3);
             Console.WriteLine("The max double is " + maxDouble);
+
+            Console.WriteLine("Enter the strings to compare");
+            string string1 = Console.ReadLine();
+            string string2 = Console.ReadLine();
+            string string3 = Console.ReadLine();
+            string maxString = comp.compareString(string1, string2, string3);
+            Console.WriteLine("The max string is " + maxString);
         }
     }
 }

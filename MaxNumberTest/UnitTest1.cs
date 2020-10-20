@@ -53,5 +53,29 @@ namespace MaxNumberTest
             double maxNumber = comp.compareDoubles(1.1, 2.2, 3.3);
             Assert.AreEqual(maxNumber, 3.3);
         }
+
+        [TestMethod]
+        public void Given_Max_String_At_First_Position_Return_First_Number()
+        {
+            Compare comp = new Compare();
+            string maxString = comp.compareString("c", "b", "a");
+            Assert.AreEqual(maxString, "c");
+        }
+
+        [TestMethod]
+        public void Given_Max_String_At_Second_Position_Return_First_Number()
+        {
+            Compare comp = new Compare();
+            string maxString = comp.compareString("b", "c", "a");
+            Assert.AreEqual(maxString, "c");
+        }
+
+        [TestMethod]
+        public void Given_Max_String_At_Third_Position_Return_First_Number()
+        {
+            Compare comp = new Compare();
+            string maxString = comp.compareString( "a", "b", "c");
+            Assert.AreEqual(maxString, "c");
+        }
     }
 }

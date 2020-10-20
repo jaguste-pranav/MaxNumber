@@ -53,5 +53,28 @@ namespace MaxNumber
 
             return maxDouble;
         }
+
+        public string compareString(string string1, string string2, string string3)
+        {
+            string maxString = "";
+            if (string1.CompareTo(string2) > 0 && string1.CompareTo(string3) > 0)
+            {
+                maxString = string1;
+            }
+            else if (string2.CompareTo(string1) > 0 && string2.CompareTo(string3) > 0)
+            {
+                maxString = string2;
+            }
+            else if (string3.CompareTo(string1) > 0 && string3.CompareTo(string2) > 0)
+            {
+                maxString = string3;
+            }
+            else
+            {
+                throw new Exception("Please enter different strings");
+            }
+
+            return maxString;
+        }
     }
 }
