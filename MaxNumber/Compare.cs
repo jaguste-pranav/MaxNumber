@@ -10,7 +10,7 @@ namespace MaxNumber
         {
             int maxNumber = 0;
 
-            if(number1.CompareTo(number2)>0 && number1.CompareTo(number3) > 0)
+            if (number1.CompareTo(number2) > 0 && number1.CompareTo(number3) > 0)
             {
                 maxNumber = number1;
             }
@@ -75,6 +75,20 @@ namespace MaxNumber
             }
 
             return maxString;
+        }
+    }
+
+    public class MaxValue<T> where T : IComparable
+    {
+        T[] inputArray;
+        public MaxValue(T[] inputArray)
+        {
+            this.inputArray = inputArray;
+        }
+        public T getMax()
+        {
+            Array.Sort(inputArray);
+            return inputArray[inputArray.Length - 1];
         }
     }
 }
