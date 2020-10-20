@@ -29,5 +29,29 @@ namespace MaxNumber
 
             return maxNumber;
         }
+
+        public double compareDoubles(double number1, double number2, double number3)
+        {
+            double maxDouble = 0;
+
+            if (number1.CompareTo(number2) > 0 && number1.CompareTo(number3) > 0)
+            {
+                maxDouble = number1;
+            }
+            else if (number2.CompareTo(number1) > 0 && number2.CompareTo(number3) > 0)
+            {
+                maxDouble = number2;
+            }
+            else if (number3.CompareTo(number2) > 0 && number3.CompareTo(number1) > 0)
+            {
+                maxDouble = number3;
+            }
+            else
+            {
+                throw new Exception("Please enter different Numbers");
+            }
+
+            return maxDouble;
+        }
     }
 }
