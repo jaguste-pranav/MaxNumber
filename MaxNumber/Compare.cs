@@ -90,5 +90,11 @@ namespace MaxNumber
             Array.Sort(inputArray);
             return inputArray[inputArray.Length - 1];
         }
+
+        public T printMax()
+        {
+            Console.WriteLine("Max Value: "+getMax());
+            return inputArray[inputArray.Length - 1];
+        }
     }
 }

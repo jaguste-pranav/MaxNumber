@@ -33,17 +33,17 @@ namespace MaxNumber
             int[] intArray = { number1, number2, number3 , 100};
             MaxValue<int> maxValueIntGen = new MaxValue<int>(intArray);
             maxNumber = maxValueIntGen.getMax();
-            Console.WriteLine("The max number is by generics " + maxNumber);
+            Console.WriteLine("The max number is by generics " + maxValueIntGen.printMax());
 
             double[] doubleArray = { double1, double2, double3, 50.2 };
             MaxValue<double> maxValueDoubleGen = new MaxValue<double>(doubleArray);
             maxDouble = maxValueDoubleGen.getMax();
-            Console.WriteLine("The max double is by generics " + maxDouble);
+            Console.WriteLine("The max double is by generics " + maxValueDoubleGen.printMax());
 
             string[] stringArray = { string1, string2, string3, "z" };
             MaxValue<string> maxValueStringGen = new MaxValue<string>(stringArray);
             maxString = maxValueStringGen.getMax();
-            Console.WriteLine("The max string is by generics " + maxString);
+            Console.WriteLine("The max string is by generics " + maxValueStringGen.printMax());
         }
     }
 }
