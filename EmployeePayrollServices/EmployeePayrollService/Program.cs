@@ -47,6 +47,14 @@ namespace EmployeePayrollService
             };
             repo.RetrieveEmployeeBasedOnStartDate(model1);
 
+            Console.WriteLine("Retrieving Sum Avg Min Max from Employee");
+            EmployeeModel model2 = new EmployeeModel()
+            {
+                Gender = 'M'
+            };
+            repo.FindSumAvgMinMaxSalaryOfEmployee(model2);
+
+
         }
     }
 }

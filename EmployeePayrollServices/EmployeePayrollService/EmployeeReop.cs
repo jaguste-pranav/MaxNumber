@@ -12,6 +12,9 @@ namespace EmployeePayrollService
 
         SqlConnection connection;
 
+        /// <summary>
+        /// UC1 Fetching Employee Details
+        /// </summary>
         public void GetAllEmployee()
         {
             try
@@ -67,6 +70,7 @@ namespace EmployeePayrollService
             {
                 connection.Close();
             }
+            Console.WriteLine();
         }
 
         /// <summary>
@@ -121,6 +125,11 @@ namespace EmployeePayrollService
             }
         }
 
+        /// <summary>
+        /// UC3 UpdateEmployeeSalary
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
         public int UpdateEmployee(SalaryDetailModel model)
         {
             int salary = 0;
@@ -223,6 +232,56 @@ namespace EmployeePayrollService
             {
                 connection.Close();
             }
+            Console.WriteLine();
+        }
+
+        /// <summary>
+        /// UC6 FindSumAvgMinMaxSalaryOfEmployee
+        /// </summary>
+        /// <param name="model"></param>
+        public void FindSumAvgMinMaxSalaryOfEmployee(EmployeeModel model)
+        {
+            try
+            {
+                FindSumAvgMinMaxSalary salary = new FindSumAvgMinMaxSalary();
+
+                connection = new SqlConnection(connectionstring);
+                SqlCommand command = new SqlCommand("Sp_FindSumAvgMinMaxSalaryOfEmployee", connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Gender", model.Gender);
+
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        salary.gender = Convert.ToChar(reader["Gender"]);
+                        salary.count = Convert.ToInt32(reader["TotalEmp"]);
+                        salary.totalSum = Convert.ToDecimal(reader["Sum"]);
+                        salary.avg = Convert.ToDecimal(reader["AvgSalary"]);
+                        salary.min = Convert.ToDecimal(reader["MinSalary"]);
+                        salary.max = Convert.ToDecimal(reader["MaxSalary"]);
+                        Console.WriteLine("Gender: {0}, TotalCount: {1}, TotalSalary: {2}, AvgSalary:  {3}, MinSalary:  {4}, MinSalary:  {5}", salary.gender, salary.count, salary.totalSum, salary.avg, salary.min, salary.max);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No rows found");
+                }
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                connection.Close();
+            }
+            finally
+            {
+                connection.Close();
+            }
+            Console.WriteLine();
         }
     }
 }
