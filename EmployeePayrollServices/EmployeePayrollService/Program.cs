@@ -39,6 +39,14 @@ namespace EmployeePayrollService
                 Console.WriteLine("Employee isn't Added");
             }
 
+
+            Console.WriteLine("Retrieving Employee from StartDate");
+            EmployeeModel model1 = new EmployeeModel()
+            {
+                StartDate = DateTime.Parse("2018-06-26")
+            };
+            repo.RetrieveEmployeeBasedOnStartDate(model1);
+
         }
     }
 }
